@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: jetcipher/circleci-dotnet-core:3.0
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: dotnetci
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: dotnetci
+     
