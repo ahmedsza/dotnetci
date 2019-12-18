@@ -1,16 +1,15 @@
 version: 2
 jobs:
   build:
+    working_directory: /temp
     docker:
-      - image: jetcipher/circleci-dotnet-core:3.0
+      - image: microsoft/dotnet:sdk
+    environment:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
     steps:
       - checkout
-      - run:
-          name: Restore
-          command: dotnet restore
-          working_directory: dotnetci
-      - run:
-          name: Build
-          command: dotnet build -c Release
-          working_directory: dotnetci
+      - run: dotnet restore
+      - run: dotnet build
+      - run: dotnet run
      
