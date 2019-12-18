@@ -6,8 +6,11 @@ namespace gitcircle
     {
         static void Main(string[] args)
         {
+
             // aded more stuff
-            Console.WriteLine("Hello World change made with another change!");
+
+            Console.WriteLine("Hello World change made with protected branch3!");
+
         }
     }
 }
